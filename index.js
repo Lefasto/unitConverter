@@ -4,9 +4,9 @@
 1 kilogram = 2.204 pound
 */
 
-const factorMeter = 3.281
-const factorLiter = 0.264
-const factorKilo = 2.204
+const factorLength = 3.281
+const factorVolume = 0.264
+const factorMass = 2.204
 const valueEl = document.getElementById("value-el")
 const convertBtn = document.getElementById("convert-btn")
 const lengthEl = document.getElementById("length-el")
@@ -14,40 +14,26 @@ const volumeEl = document.getElementById("volume-el")
 const massEl = document.getElementById("mass-el")
 
 convertBtn.addEventListener("click", function() {
-    if(isNaN(valueEl.value)) {
-        prompt("input must be a number!")
-    }else {
-        lengthEl.textContent = `${valueEl.value} meters = ${meterToFeet(valueEl.value)} feet | 
-            ${valueEl.value} feet = ${feetToMeter(valueEl.value)} meters`
 
-        volumeEl.textContent = `${valueEl.value} liters = ${literToGallon(valueEl.value)} gallons | 
-            ${valueEl.value} gallons = ${gallonToLiter(valueEl.value)} liters`
-        
-        massEl.textContent = `${valueEl.value} kilos = ${kiloToPound(valueEl.value)} pounds | 
-            ${valueEl.value} pounds = ${poundToKilo(valueEl.value)} kilos`
-    }
+    const length = convert(valueEl.value, factorLength, "meters", "feet")
+    const volume = convert(valueEl.value, factorVolume, "liters", "gallons")
+    const mass = convert(valueEl.value, factorMass, "kilos", "pounds")
+
+    lengthEl.textContent = `${length.forwardText} | ${length.backwardText}`
+    volumeEl.textContent = `${volume.forwardText} | ${volume.backwardText}`
+    massEl.textContent = `${mass.forwardText} | ${mass.backwardText}`
 })
 
-function meterToFeet(value) {
-    return (value * factorMeter).toFixed(3)
-}
+function convert(value, factor, fromUnit, toUnit) {
 
-function feetToMeter(value) {
-    return (value / factorMeter).toFixed(3)
-}
+    const num = Number(value)
 
-function literToGallon(value) {
-    return (value * factorLiter).toFixed(3)
-}
+    const forward = (value * factor).toFixed(3)
+    const backward = (value / factor).toFixed(3)
 
-function gallonToLiter(value) {
-    return (value / factorLiter).toFixed(3)
-}
+    return {
+        forwardText: `${num} ${fromUnit} = ${forward} ${toUnit}`,
+        backwardText: `${num} ${toUnit} = ${backward} ${fromUnit}`
+    }
 
-function kiloToPound(value) {
-    return (value * factorKilo).toFixed(3)
-}
-
-function poundToKilo(value) {
-    return (value / factorKilo).toFixed(3)
 }
