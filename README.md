@@ -12,10 +12,13 @@ The app accepts a numeric input value and calculates both conversion directions 
 
 Results are formatted to three decimal places.
 
+The current implementation uses one generic conversion function for all categories.
+
 ## Features
 
 - Input field for a numeric value
 - Button to trigger the conversion
+- One reusable conversion function (`convert`) used for length, volume, and mass
 - Output for three conversion categories:
   - Length (Meters/Feet)
   - Volume (Liters/Gallons)
@@ -31,7 +34,7 @@ Results are formatted to three decimal places.
 
 - `index.html`: Page markup and structure
 - `index.css`: Layout and styling
-- `index.js`: Event handling and conversion logic
+- `index.js`: Event handling and generic conversion logic
 
 ## Run Locally
 
@@ -48,7 +51,8 @@ Since this is a pure frontend project without a build step, there are two simple
 
 ## Notes
 
-- For non-numeric input, the app currently shows a prompt warning.
+- Inputs are converted with `Number(...)` before display.
+- Non-numeric input currently results in `NaN` in the output text (no explicit validation message yet).
 - Very large or very small values are supported but still rounded to three decimal places.
 
 ## Learning Goals (Practice Project)
