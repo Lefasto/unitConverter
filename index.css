@@ -50,29 +50,6 @@ h1 {
     background: #1F2937;
 }
 
-#length-container {
-    width: 500px;
-    height: 108px;
-    background: #273549;
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-#volume-container {
-    width: 500px;
-    height: 108px;
-    background: #273549;
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-#mass-container {
-    width: 500px;
-    height: 108px;
-    background: #273549;
-    text-align: center;
-}
-
 h3 {
     color: #CCCFFF;
     font-weight: 20px;
@@ -80,4 +57,12 @@ h3 {
 
 p {
     color: white;
+}
+
+.conversion-container {
+    width: 500px;
+    height: 108px;
+    background: #273549;
+    text-align: center;
+    margin-bottom: 24px;
 }
