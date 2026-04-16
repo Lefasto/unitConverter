@@ -61,3 +61,4 @@ Since this is a pure frontend project without a build step, there are two simple
 - Create reusable conversion functions
 - Use template strings for dynamic output
 - Build basic layout and styling with CSS
+- Using Objects in JavaScript
